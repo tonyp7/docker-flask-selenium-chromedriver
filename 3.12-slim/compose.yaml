@@ -9,6 +9,8 @@
 # https://github.com/docker/awesome-compose
 services:
   server:
+    image: tonyp7/flask-selenium-chromedriver:latest 
+    container_name: flask-selenium-chromedriver
     build:
       context: . 
     ports:

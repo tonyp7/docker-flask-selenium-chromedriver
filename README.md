@@ -20,6 +20,8 @@ docker compose up
 
 By default, the web server will run on port 8000 and there's a /test endpoint that connects to google.com and return the page source.
 
+![Test endpoint](https://github.com/tonyp7/docker-flask-selenium-chromedriver/blob/dde2da9007d805d0b9ef41d450e0843f0b9bf84c/documentation/hello-world-test-endpoint.png)
+Google's page source being displayed.
 
 # Image build
 

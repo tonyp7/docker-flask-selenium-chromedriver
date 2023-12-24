@@ -13,12 +13,19 @@ And thus, docker-flask-selenium-chromedriver was born.
 
 The image comes with a docker-compose yml and as such you can simply start the image with the following command:
 
-```bash
+```console
 cd 3.12-slim
 docker compose up
 ```
 
 By default, the web server will run on port 8000 and there's a /test endpoint that connects to [httpbin](https://httpbin.org/html) and returns OK if it was able to read the H1 tag.
+
+e.g. you can confirm by running:
+
+```console
+curl 127.0.0.1:8000/test
+OK
+```
 
 # Image build
 

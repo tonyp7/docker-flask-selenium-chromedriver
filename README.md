@@ -1,6 +1,6 @@
-# docker-flask-selenium-chromedriver
+# Containerized Selenium/Chromedriver running on Python and Flask 
  
-This is a docker image that comes pre-installed with a Python/Flask web application that can run Selenium with Chromedriver.
+This is a docker image that comes pre-installed with a Python `Flask` web application that can run `Selenium` with `Chromedriver`.
 
 # Why?
 
@@ -18,14 +18,11 @@ cd 3.12-slim
 docker compose up
 ```
 
-By default, the web server will run on port 8000 and there's a /test endpoint that connects to google.com and return the page source.
-
-![Test endpoint](https://github.com/tonyp7/docker-flask-selenium-chromedriver/blob/dde2da9007d805d0b9ef41d450e0843f0b9bf84c/documentation/hello-world-test-endpoint.png)
-Google's page source being displayed.
+By default, the web server will run on port 8000 and there's a /test endpoint that connects to [httpbin](https://httpbin.org/html) and returns OK if it was able to read the H1 tag.
 
 # Image build
 
-The image is based on python-slim image, which itself is based on debian:bookworm-slim. It adds:
+The image is based on `python-slim` image, which itself is based on `debian:bookworm-slim`. It adds:
 
 Installed from apt:
  - chromium
@@ -36,10 +33,3 @@ Installed from pip through requirements.txt
  - gunicorn
  - selenium
  
-
-
-
-
-
-
-

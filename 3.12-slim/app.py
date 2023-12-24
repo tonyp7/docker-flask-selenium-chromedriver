@@ -1,6 +1,5 @@
-from flask import Flask, Response
+from flask import Flask
 from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 
 app = Flask(__name__)
@@ -11,7 +10,7 @@ def index():
 
 @app.route('/test')
 def test():
-    """ This is just a simple test that creates a driver, fetch google.com and return the page source as plain text """
+    """ This is just a simple test that creates a driver, fetch a simple page and check that content could be read """
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--headless')
@@ -19,14 +18,17 @@ def test():
     chrome_options.add_argument('--disable-dev-shm-usage')
     chrome_options.add_argument("--window-size=1920,1080")
     driver = webdriver.Chrome(options=chrome_options)
-    driver.implicitly_wait(10)
 
-    driver.get('https://www.google.com/')
+    driver.get('https://httpbin.org/html')
 
-    source = driver.page_source
+    h1 = driver.find_element(by=By.TAG_NAME, value='h1')
+    inner_text = h1.text
+
     driver.quit()
 
-    response = Response(source, status=200, mimetype='text/plain')
-    return response
+    if inner_text == 'Herman Melville - Moby-Dick':
+        return 'OK', 200
+    else:
+        return 'Not Acceptable', 406 
 
 

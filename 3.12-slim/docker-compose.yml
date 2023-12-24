@@ -1,0 +1,10 @@
+version: '3.1'
+
+services:
+  server:
+    image: tonyp7/flask-selenium-chromedriver:latest 
+    container_name: flask-selenium-chromedriver
+    build:
+      context: . 
+    ports:
+      - 8000:8000

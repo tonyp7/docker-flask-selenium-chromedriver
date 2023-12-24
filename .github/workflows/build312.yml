@@ -6,9 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Move to working directory
-        run: cd 3.12-slim
       - name: build and run the project
         run: docker compose up --build -d
+        working-directory: 3.12-slim
       - name: Test the endpoint
         run: curl --retry 10 --retry-connrefused http://127.0.0.1:8000/test

@@ -10,4 +10,4 @@ jobs:
         run: docker compose up --build -d
         working-directory: 3.12-slim
       - name: Test the endpoint
-        run: curl --retry 10 --retry-connrefused http://127.0.0.1:8000/test
+        run: docker run --network container:flask-selenium-chromedriver appropriate/curl --retry 10 http://localhost:8000/test

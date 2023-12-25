@@ -4,6 +4,7 @@ services:
   server:
     image: tonyp7/flask-selenium-chromedriver:latest 
     container_name: flask-selenium-chromedriver
+    shm_size: '2gb'
     build:
       context: . 
     ports:
